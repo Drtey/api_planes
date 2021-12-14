@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "modalidades",
+  "info": {
+    "name": "Modalidades",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nombre": {
+      "type": "string"
+    },
+    "curso": {
+      "via": "modalidades",
+      "model": "cursos"
+    },
+    "optativas": {
+      "via": "modalidades",
+      "collection": "optativas",
+      "dominant": true
+    },
+    "troncales": {
+      "via": "modalidades",
+      "collection": "troncales",
+      "dominant": true
+    },
+    "matriculas": {
+      "via": "modalidad",
+      "collection": "matriculas"
+    }
+  }
+}

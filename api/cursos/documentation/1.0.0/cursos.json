@@ -1,0 +1,958 @@
+{
+  "paths": {
+    "/cursos": {
+      "get": {
+        "deprecated": false,
+        "description": "Find all the cursos's records",
+        "responses": {
+          "200": {
+            "description": "Retrieve cursos document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Cursos"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Cursos"
+        ],
+        "parameters": [
+          {
+            "name": "_limit",
+            "in": "query",
+            "required": false,
+            "description": "Maximum number of results possible",
+            "schema": {
+              "type": "integer"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_sort",
+            "in": "query",
+            "required": false,
+            "description": "Sort according to a specific field.",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_start",
+            "in": "query",
+            "required": false,
+            "description": "Skip a specific number of entries (especially useful for pagination)",
+            "schema": {
+              "type": "integer"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "=",
+            "in": "query",
+            "required": false,
+            "description": "Get entries that matches exactly your input",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_ne",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are not equals to something",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_lt",
+            "in": "query",
+            "required": false,
+            "description": "Get record that are lower than a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_lte",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are lower than or equal to a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_gt",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are greater than a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_gte",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are greater than  or equal a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_contains",
+            "in": "query",
+            "required": false,
+            "description": "Get records that contains a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_containss",
+            "in": "query",
+            "required": false,
+            "description": "Get records that contains (case sensitive) a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_in",
+            "in": "query",
+            "required": false,
+            "description": "Get records that matches any value in the array of values",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_nin",
+            "in": "query",
+            "required": false,
+            "description": "Get records that doesn't match any value in the array of values",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "deprecated": false
+          }
+        ]
+      },
+      "post": {
+        "deprecated": false,
+        "description": "Create a new cursos record",
+        "responses": {
+          "200": {
+            "description": "Retrieve cursos document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Cursos"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Cursos"
+        ],
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewCursos"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/cursos/count": {
+      "get": {
+        "deprecated": false,
+        "description": "Retrieve the number of cursos documents",
+        "responses": {
+          "200": {
+            "description": "Retrieve cursos document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "count": {
+                      "type": "integer"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Cursos"
+        ],
+        "parameters": []
+      }
+    },
+    "/cursos/{id}": {
+      "get": {
+        "deprecated": false,
+        "description": "Find one cursos record",
+        "responses": {
+          "200": {
+            "description": "Retrieve cursos document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Cursos"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Cursos"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      "put": {
+        "deprecated": false,
+        "description": "Update a single cursos record",
+        "responses": {
+          "200": {
+            "description": "Retrieve cursos document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Cursos"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Cursos"
+        ],
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewCursos"
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      "delete": {
+        "deprecated": false,
+        "description": "Delete a single cursos record",
+        "responses": {
+          "200": {
+            "description": "deletes a single cursos based on the ID supplied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int64"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Cursos"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Cursos": {
+        "required": [
+          "id"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "nombre": {
+            "type": "string"
+          },
+          "curso_cod": {
+            "type": "string"
+          },
+          "modalidades": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "nombre": {
+                  "type": "string"
+                },
+                "curso": {
+                  "type": "string"
+                },
+                "optativas": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "troncales": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "matriculas": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "condiciones": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "nombre": {
+                  "type": "string"
+                },
+                "validar": {
+                  "type": "boolean"
+                },
+                "cursos": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "troncales": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "nombre": {
+                  "type": "string"
+                },
+                "asignatura_cod": {
+                  "type": "string"
+                },
+                "cursos": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "modalidades": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "Eleccion": {
+                  "type": "boolean"
+                },
+                "Tipo": {
+                  "type": "string",
+                  "enum": [
+                    "general",
+                    "especifica",
+                    "de_opcion"
+                  ]
+                },
+                "Anotacion": {
+                  "type": "string"
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "optativas": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "nombre": {
+                  "type": "string"
+                },
+                "optativa_cod": {
+                  "type": "string"
+                },
+                "cursos": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "Horas": {
+                  "type": "string"
+                },
+                "Religion": {
+                  "type": "boolean"
+                },
+                "LenguaExtranjera": {
+                  "type": "boolean"
+                },
+                "modalidades": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "OpcionBilingue": {
+                  "type": "boolean"
+                },
+                "Nota": {
+                  "type": "string"
+                },
+                "TroncalNoCursada": {
+                  "type": "boolean"
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "matriculas": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "nombre",
+                "papellido",
+                "sapellido",
+                "NIF",
+                "direccion",
+                "localidad",
+                "provincia",
+                "lugarNacimiento",
+                "provinciaNacimiento",
+                "codigoPostal",
+                "fechaNac",
+                "nombreTutor1",
+                "papellidoTutor1",
+                "sapellidoTutor1",
+                "telTutor1",
+                "nifTutor1",
+                "faltasTutor1",
+                "imagenPermisos",
+                "enfermedades",
+                "repite",
+                "ordenOptativas"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "fecha": {
+                  "type": "string"
+                },
+                "curso": {
+                  "type": "string"
+                },
+                "user": {
+                  "type": "string"
+                },
+                "nombre": {
+                  "type": "string"
+                },
+                "papellido": {
+                  "type": "string"
+                },
+                "sapellido": {
+                  "type": "string"
+                },
+                "NIF": {
+                  "type": "string"
+                },
+                "direccion": {
+                  "type": "string"
+                },
+                "localidad": {
+                  "type": "string"
+                },
+                "provincia": {
+                  "type": "string"
+                },
+                "lugarNacimiento": {
+                  "type": "string"
+                },
+                "provinciaNacimiento": {
+                  "type": "string"
+                },
+                "tel": {
+                  "type": "integer"
+                },
+                "codigoPostal": {
+                  "type": "integer"
+                },
+                "fechaNac": {
+                  "type": "string"
+                },
+                "nSSocial": {
+                  "type": "integer"
+                },
+                "nombreTutor1": {
+                  "type": "string"
+                },
+                "papellidoTutor1": {
+                  "type": "string"
+                },
+                "sapellidoTutor1": {
+                  "type": "string"
+                },
+                "emailTutor1": {
+                  "type": "string"
+                },
+                "telTutor1": {
+                  "type": "integer"
+                },
+                "nombreTutor2": {
+                  "type": "string"
+                },
+                "papellidoTutor2": {
+                  "type": "string"
+                },
+                "sapellidoTutor2": {
+                  "type": "string"
+                },
+                "emailTutor2": {
+                  "type": "string"
+                },
+                "telTutor2": {
+                  "type": "integer"
+                },
+                "nifTutor1": {
+                  "type": "string"
+                },
+                "nifTutor2": {
+                  "type": "string"
+                },
+                "faltasTutor1": {
+                  "type": "boolean"
+                },
+                "faltasTutor2": {
+                  "type": "boolean"
+                },
+                "imagenPermisos": {
+                  "type": "boolean"
+                },
+                "enfermedades": {
+                  "type": "boolean"
+                },
+                "salidaTutor1": {
+                  "type": "boolean"
+                },
+                "salidaTutor2": {
+                  "type": "boolean"
+                },
+                "datosPersonales": {
+                  "type": "boolean"
+                },
+                "centroProcedencia": {
+                  "type": "string"
+                },
+                "repite": {
+                  "type": "boolean"
+                },
+                "valores": {
+                  "type": "string"
+                },
+                "valoresTutor1": {
+                  "type": "boolean"
+                },
+                "valoresTutor2": {
+                  "type": "boolean"
+                },
+                "ordenOptativas": {
+                  "type": "string"
+                },
+                "modalidad": {
+                  "type": "string"
+                },
+                "enviada": {
+                  "type": "boolean"
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "published_at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "NewCursos": {
+        "properties": {
+          "nombre": {
+            "type": "string"
+          },
+          "curso_cod": {
+            "type": "string"
+          },
+          "modalidades": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "condiciones": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "troncales": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "optativas": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "matriculas": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "published_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "created_by": {
+            "type": "string"
+          },
+          "updated_by": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Cursos"
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "kind": "collectionType",
+  "collectionName": "optativas",
+  "info": {
+    "name": "Optativas",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nombre": {
+      "type": "string"
+    },
+    "optativa_cod": {
+      "type": "string"
+    },
+    "cursos": {
+      "collection": "cursos",
+      "via": "optativas",
+      "dominant": true
+    },
+    "Horas": {
+      "type": "string"
+    },
+    "Religion": {
+      "type": "boolean"
+    },
+    "LenguaExtranjera": {
+      "type": "boolean"
+    },
+    "modalidades": {
+      "via": "optativas",
+      "collection": "modalidades"
+    },
+    "OpcionBilingue": {
+      "type": "boolean"
+    },
+    "Nota": {
+      "type": "text"
+    },
+    "TroncalNoCursada": {
+      "type": "boolean"
+    }
+  }
+}
